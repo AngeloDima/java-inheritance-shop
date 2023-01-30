@@ -1,47 +1,66 @@
-
 package java_inheritance_shop;
 
-import java.text.DecimalFormat;
-import java.util.Random;
-
 public class Prodotto {
-	
-	int codice;
-	String nome;
-	String descrizione;
-	double prezzo;
-	double iva=22;
-	
-	
-	private static final DecimalFormat Arro = new DecimalFormat("0.00");
-	
-	public Prodotto( String nome, String descrizione, double prezzo) {
-		
-		Random rand= new Random();
-		this.codice = rand.nextInt(98765 + 1 - 1) + 1;
+	private int codice;
+	private String nome;
+	private String marca;
+	private double prezzo;
+	private int iva;
+
+	public Prodotto(int codice, String nome, String marca, double prezzo, int iva) {
+
+		this.codice = codice;
 		this.nome = nome;
-		this.descrizione = descrizione;
+		this.marca = marca;
+		this.prezzo = prezzo;
+		this.iva = iva;
+	}
+
+	public int getCodice() {
+		return codice;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public double getPrezzo() {
+		return prezzo;
+	}
+
+	public void setPrezzo(double prezzo) {
 		this.prezzo = prezzo;
 	}
-	public void printFullName(int codice, String nome) {
-		String CodNom= codice + nome;
-		System.out.println("Full name = " +  CodNom); 
-	}
-	
-	public void printBasePrice(double price) {
-		System.out.println("Prezzo base Prodotto = "+ Arro.format(price) + " $");
-	}
-	
-	public void printivaPrice(double price) {
-		double PriIva = price + price * iva / 100;
-		System.out.println("Prezzo con Iva =  " + Arro.format(PriIva) + " $");
-	}
-	
 
-	
+	public int getIva() {
+		return iva;
+	}
 
-	
-	
-	
-	
+	public void setIva(int iva) {
+		this.iva = iva;
+	}
+
+	public double getIvaPrezzo() {
+		double ivaPrezzo = prezzo + (prezzo * iva / 100);
+		return ivaPrezzo;
+	}
+
+	@Override
+	public String toString() {
+		return "codice: " + getCodice() + "\nnome: " + getNome() + "\nmarca: " + getMarca() + "\nprezzo: " + getPrezzo()
+				+ "€ \niva: " + getIva() + "% \nprezzo con iva: " + getIvaPrezzo() + "€";
+	}
+
 }

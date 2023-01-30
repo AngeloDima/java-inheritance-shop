@@ -1,16 +1,29 @@
 package java_inheritance_shop;
 
-import java_inheritance_shop.Prodotto;
-
 public class Main {
 
-	public static void main(String[] args) {
-		Prodotto Kart = new Prodotto("Kart", "Kart 125cc e 250cc", 350);
-		System.out.println("Codice Prodotto = "+Kart.codice);
-		Kart.printBasePrice(Kart.prezzo);
-		Kart.printivaPrice(Kart.prezzo);
-		Kart.printFullName(Kart.codice,  Kart.nome);
-		
+		public static void main(String[] args) {
+
+
+			
+			
+			
+			Smartphone Telefono = new Smartphone(1, "S22", "Samsung", 550, 19, "87459874368546", 256);
+			System.out.println(Telefono);
+			System.out.println("---Prossimo Prodotto---");
+
+			
+			
+			
+			Televisore Television = new Televisore(2, "Samsung mega schermo", "Samsung", 500, 22, 22, false);
+			System.out.println(Television);
+			System.out.println("---Prossimo Prodotto---");
+
+			
+			
+			
+			Cuffie Cuff = new Cuffie(3, "Artic seals", "artic", 25, 22, "white", true);
+			System.out.println(Cuff);
+		}
 	}
 
-}
